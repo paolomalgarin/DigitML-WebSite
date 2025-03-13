@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "../../styles/vars.css";
+@import "../../styles/nav.css";
+
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: var(--light-neutral-color);
+    color: var(--primary-color);
+    font-size: var(--text-medium);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    position: relative;
+    background-image: url(../../imgs/landing_bg.svg);
+    background-attachment: fixed;
+
+    & form {
+        width: min(95%, 1000px);
+        background-color: var(--light-neutral-color);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        border: solid 4px var(--t-secondary-color);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: var(--text-x-small);
+        padding: var(--text-medium) 0;
+
+        & h2 {
+            text-align: center;
+            margin: 0;
+            margin-bottom: var(--text-x-small);
+
+            & strong {
+                display: block;
+                color: var(--accent-color);
+            }
+        }
+
+        & input {
+            font-size: var(--text-medium);
+            width: min(800px, 90%);
+            box-sizing: border-box;
+
+            &[type='submit'] {
+                background-color: var(--t-accent-color);
+                color: var(--secondary-color);
+                padding: 10px;
+                border-radius: 10px;
+                text-decoration: none;
+                font-weight: bold;
+                box-sizing: border-box;
+                border: solid 2px var(--accent-color);
+                display: block;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--accent-color);
+                }
+            }
+
+            &[type='text'],
+            &[type='password'] {
+                padding: var(--text-x-small);
+                background-color: var(--dark-neutral-color);
+                color: var(--primary-color);
+                border: solid 2px var(--secondary-color);
+                border-radius: 5px;
+
+                &::placeholder {
+                    color: var(--t-secondary-color);
+                }
+
+                &:focus-visible {
+                    border-color: var(--accent-color);
+                    outline: none;
+                }
+            }
+        }
+
+        & .error {
+            color: var(--light-neutral-color);
+            background-color: var(--t-red);
+            margin-top: var(--text-x-small);
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 95%;
+            box-sizing: border-box;
+            text-align: center;
+            font-weight: bold;
+            border: solid 2px var(--red);
+        }
+    }
+}

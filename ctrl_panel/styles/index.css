@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "../../styles/vars.css";
+@import "../../styles/nav.css";
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: var(--light-neutral-color);
+    color: var(--primary-color);
+    font-size: var(--text-medium);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    position: relative;
+    background-image: url(../../imgs/landing_bg.svg);
+    background-attachment: fixed;
+
+    & .option-container {
+        margin: 10px 0;
+        width: min(95%, 1000px);
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        padding: var(--text-medium) 0;
+        gap: var(--text-medium);
+
+        & .card {
+            display: block;
+            width: 100%;
+            background-color: var(--light-neutral-color);
+            border: solid 4px var(--t-secondary-color);
+            color: var(--secondary-color);
+            text-decoration: none;
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all .3s ease;
+
+            &.error {
+
+                &:hover {
+                    transform: scale(1);
+                    border-color: var(--red);
+                    background-color: var(--t-red);
+                    color: var(--primary-color);
+                    backdrop-filter: blur(3px);
+                }
+            }
+
+            &:hover {
+                transform: scale(1.1);
+                border-color: var(--accent-color);
+                background-color: var(--t-accent-color);
+                color: var(--primary-color);
+                backdrop-filter: blur(3px);
+            }
+        }
+    }
+}

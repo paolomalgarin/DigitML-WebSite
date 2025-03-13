@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "../../styles/vars.css";
+@import "../../styles/nav.css";
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    background-color: var(--light-neutral-color);
+    color: var(--primary-color);
+    font-size: var(--text-medium);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    position: relative;
+    background-image: url(../../imgs/landing_bg.svg);
+    background-attachment: fixed;
+
+    & .option-container {
+        margin: 10px 0;
+        width: min(95%, 1000px);
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: var(--text-medium) 0;
+        gap: var(--text-medium);
+
+        & .card {
+            display: block;
+            width: min(400px, 100%);
+            background-color: var(--light-neutral-color);
+            border: solid 4px var(--t-secondary-color);
+            color: var(--secondary-color);
+            text-decoration: none;
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all .3s ease;
+            cursor: pointer;
+            position: relative;
+            user-select: none;
+
+            &:hover {
+                transform: scale(1.1);
+                border-color: var(--accent-color);
+                background-color: var(--t-accent-color);
+                color: var(--primary-color);
+                backdrop-filter: blur(3px);
+
+                & .lvl {
+                    color: var(--primary-color);
+                }
+            }
+
+            &.locked {
+                cursor: url(../../imgs/lock.png) 15 15, auto;
+
+                &:hover {
+                    transform: none;
+                    background-color: var(--light-neutral-color);
+                    color: var(--secondary-color);
+                    backdrop-filter: none;
+                    border-color: var(--t-red);
+
+                    & .lvl {
+                        color: var(--t-red);
+                    }
+                }
+            }
+
+            &.add:hover {
+                background-color: var(--light-neutral-color);
+                color: var(--green);
+                backdrop-filter: none;
+                border-color: var(--t-green);
+            }
+
+            &.error {
+
+                &:hover {
+                    border-color: var(--red);
+                    background-color: var(--t-red);
+                    color: var(--primary-color);
+                    backdrop-filter: blur(3px);
+                }
+            }
+
+            & .lvl {
+                position: absolute;
+                right: 0;
+                top: 0;
+                padding: var(--text-x-small);
+                color: var(--t-accent-color);
+                font-weight: bold;
+            }
+        }
+    }
+
+    & .sidebar {
+        float: right;
+        margin-top: 30px;
+        margin-right: 0px;
+        /* background-color: red; */
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        padding: 10px;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+
+        & #adduser-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: var(--text-medium);
+            font-weight: bold;
+            background-color: var(--light-neutral-color);
+            border: solid 4px var(--t-secondary-color);
+            color: var(--secondary-color);
+            text-decoration: none;
+            text-align: center;
+            box-sizing: border-box;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all .3s ease;
+            cursor: pointer;
+            user-select: none;
+
+            &:hover {
+                background-color: var(--light-neutral-color);
+                color: var(--green);
+                backdrop-filter: none;
+                border-color: var(--t-green);
+            }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1023px) {
+
+    body .sidebar {
+        flex-direction: row;
+        width: calc(100% - 20px);
+    }
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DigitML | Draw</title>
+
+    <link rel="shortcut icon" href="imgs/logo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="styles/app.css">
+</head>
+
+<body>
+    <section class="container">
+        <form action="elabora.php" method="post" onsubmit="return sendForm(Event)" id="toolbar">
+
+            <h1><a href="landing.html">DigitML</a></h1>
+
+            <span class="subheading">”Disegna un numero e proverò ad indovinarlo”</span>
+
+            <div class="tools">
+                <div class="sizes">
+                    <input type="checkbox" class="icon" id="sizes-checkbox">
+                    <div class="sizes-buttons">
+                        <div class="s" onclick="change_line_width('s')"></div>
+                        <div class="m" onclick="change_line_width('m')"></div>
+                        <div class="l" onclick="change_line_width('l')"></div>
+                    </div>
+                </div>
+
+                <div onclick="clear_canvas()" class="clear-btn">Clear</div>
+            </div>
+
+            <input type="hidden" name="canvas-image" id="canvas-image">
+            <input type="submit" value="GUESS" id="submit">
+        </form>
+
+
+        <div class="x">
+            <div id="canvas-container">
+                <canvas id="drawing-board"></canvas>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="scripts/script.js"></script>
+    <script src="scripts/theme.js"></script>
+</body>
+
+</html>

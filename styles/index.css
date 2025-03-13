@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url(vars.css);
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    color: var(--primary-color);
+    font-size: var(--text-medium);
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+
+    /* & .control-panel {
+        display: block;
+        position: absolute;
+        padding: var(--text-x-small);
+        font-size: var(--text-small);
+        left: 5px;
+        top: 5px;
+        text-decoration: none;
+        border-radius: var(--text-x-small);
+        border: solid 2px transparent;
+        font-weight: bold;
+        background-color: transparent;
+        color: transparent;
+        transition: all .3s ease;
+        user-select: none;
+
+        &:hover {
+            background-color: var(--t-light-neutral-color);
+            color: var(--t-primary-color);
+            border-color: var(--t-primary-color);
+        }
+
+        &:focus {
+            background-color: var(--light-neutral-color);
+            color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+    } */
+
+    & .banner {
+        height: 100%;
+        width: 100%;
+        background-color: var(--light-neutral-color);
+        background-image: url(../imgs/landing_bg.svg);
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: bannerAnimation 4.5s ease-in-out 1 forwards;
+        cursor: default;
+
+        & .title {
+            transition: all .3s ease;
+            cursor: pointer;
+
+            &:hover {
+                transform: scale(1.2);
+            }
+
+            & svg {
+                width: min(600px, 90vw);
+
+                path {
+                    fill: transparent;
+                    stroke: var(--accent-color);
+                    stroke-width: 0.2;
+                    stroke-dasharray: 80;
+                    animation: textAnimation 4s ease-in-out 1 forwards;
+                }
+            }
+        }
+    }
+}
+
+@keyframes textAnimation {
+    0% {
+        stroke-dashoffset: 80;
+    }
+
+    70% {
+        fill: transparent;
+    }
+
+    100% {
+        fill: var(--t-accent-color);
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes bannerAnimation {
+    0% {
+        background-size: 100vh;
+    }
+
+    100% {
+        background-size: 400vh;
+    }
+}
+
+/* @media screen and (max-width: 1023px) {
+    body .control-panel {
+        background-color: var(--t-light-neutral-color);
+        color: var(--t-primary-color);
+        border-color: var(--t-primary-color);
+    }
+} */

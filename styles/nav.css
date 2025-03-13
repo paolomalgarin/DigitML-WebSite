@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Finger+Paint&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import "vars.css";
+
+#navbar {
+    width: 100%;
+    position: sticky;
+    width: calc(100% - 10px);
+    background-color: var(--light-neutral-color);
+    padding: 10px 0;
+    box-sizing: border-box;
+    border-radius: 10px;
+    top: 5px;
+    left: 5px;
+    border: solid 2px var(--dark-neutral-color);
+    z-index: 200;
+
+    & h1 {
+        font-family: "Finger Paint", sans-serif;
+        font-weight: 400;
+        margin: 0;
+        text-align: center;
+        font-size: var(--text-large);
+        background: linear-gradient(90deg, var(--secondary-color) 0%, var(--accent-color) 50%, var(--light-neutral-color) 100%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        & a {
+            text-decoration: none;
+        }
+    }
+
+    & h2 {
+        font-size: var(--text-small);
+        text-align: center;
+        color: var(--t-primary-color);
+        margin: 0;
+        padding-top: var(--text-x-small);
+        font-style: italic;
+    }
+
+    & .nav-btn {
+        display: block;
+        background-color: var(--dark-neutral-color);
+        box-shadow: var(--t-secondary-color) 0px 0px 0px 3px;
+        color: var(--secondary-color);
+        font-size: var(--text-medium);
+        cursor: pointer;
+        padding: var(--text-small);
+        border-radius: 5px;
+        /* width: min(90%, 300px); */
+        font-weight: bold;
+        text-decoration: none;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+
+        &.left {
+            right: auto;
+            left: 10px;
+        }
+
+        &:hover {
+            box-shadow: var(--accent-color) 0px 0px 0px 3px;
+            background-color: var(--t-accent-color);
+            color: var(--secondary-color);
+        }
+    }
+
+    & #log-out {
+
+        & input[type='submit'] {
+            display: block;
+            position: absolute;
+            width: fit-content;
+            color: var(--secondary-color);
+            background-color: var(--dark-neutral-color);
+            box-shadow: var(--t-secondary-color) 0px 0px 0px 3px;
+            font-size: var(--text-medium);
+            font-weight: bold;
+            padding: var(--text-small);
+            border-radius: 5px;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            border: 0;
+
+            &:hover {
+                box-shadow: var(--red) 0px 0px 0px 3px;
+                background-color: var(--t-red);
+                color: var(--secondary-color);
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 770px) {
+    body {
+        & #navbar {
+            & .nav-btn {
+                display: inline-block;
+                background-color: var(--accent-color);
+                box-shadow: none;
+                color: var(--secondary-color);
+                font-size: var(--text-medium);
+                cursor: pointer;
+                padding: var(--text-small);
+                border-radius: 5px;
+                font-weight: bold;
+                text-decoration: none;
+                position: relative;
+                right: -50%;
+                top: 0;
+                transform: translate(-50%, 0);
+                margin-top: 10px;
+                width: 60%;
+                box-sizing: border-box;
+                text-align: center;
+
+
+                &.left {
+                    left: auto;
+                    right: -50%;
+                }
+
+                &:hover {
+                    box-shadow: var(--accent-color) 0px 0px 0px 3px;
+                    background-color: var(--t-accent-color);
+                    color: var(--secondary-color);
+                }
+            }
+
+            & #log-out {
+
+                & input[type='submit'] {
+                    position: relative;
+                    left: 50%;
+                    top: 0;
+                    transform: translateX(-50%);
+                    color: var(--secondary-color);
+                    background-color: var(--red);
+                    width: 60%;
+                    box-shadow: none;
+                }
+            }
+        }
+    }
+}
