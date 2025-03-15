@@ -54,6 +54,14 @@ body {
 
             & img {
                 width: min(200px, 60%);
+                border-radius: 10px;
+                filter: invert(1);
+                transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+
+                &:hover {
+                    transform: scale(.95);
+                    /* border: solid 10px var(--t-accent-color); */
+                }
             }
 
             & .data {

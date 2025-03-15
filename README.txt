@@ -43,11 +43,11 @@
                                          
 
 admin:
- - pwd: admin
+ - pwd: noadmin
  - lvl: 0       !! gli utenti con lvl 0 non possono essere eliminati dal pannello !!
 
 root:
- - pwd: root
+ - pwd: siroot
  - lvl: 1
 
 testUser:

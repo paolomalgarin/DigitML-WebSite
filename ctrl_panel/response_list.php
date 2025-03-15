@@ -42,8 +42,8 @@ if ($_SESSION['user']['level'] > $required_lvl)
         <div class="options">
             <h3>Order By</h3>
             <div class="buttons">
-            <div class="btn" onclick="orderBy('date', LIST, printList);">Date</div>
-            <div class="btn" onclick="orderBy('number', LIST, printList);">Number</div>
+                <div class="btn" onclick="orderBy('date', LIST, printList);">Date</div>
+                <div class="btn" onclick="orderBy('number', LIST, printList);">Number</div>
             </div>
         </div>
     </header>
@@ -53,6 +53,14 @@ if ($_SESSION['user']['level'] > $required_lvl)
 
     <script src="../scripts/theme.js"></script>
     <script src="../scripts/fetch_response_list.js"></script>
+    <script>
+        <?php
+        $hostname = gethostname();
+        $ip = gethostbyname($hostname);
+        ?>
+        //elaborazione dati
+        getResponseList('<?= $ip ?>');
+    </script>
 </body>
 
 </html>

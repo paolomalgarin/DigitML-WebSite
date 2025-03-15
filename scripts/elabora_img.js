@@ -4,7 +4,7 @@ const boxes = document.querySelectorAll('.box');
 const suspance = document.querySelector('.suspance');
 
 
-function invertImage(image, callback) {
+function invertImage(image, ip, callback) {
     const canvas = document.createElement("canvas");
     const ctx = canvas.getContext("2d");
 
@@ -26,27 +26,32 @@ function invertImage(image, callback) {
     ctx.putImageData(imageData, 0, 0);
 
     // Converti il canvas in base64 e chiama il callback
-    callback(canvas.toDataURL());
+    callback(canvas.toDataURL(), ip);
 }
 
 
 
-function sendImage(invertedSrc) {
+function sendImage(invertedSrc, ip) {
     // img.src = invertedSrc; // Aggiorna l'immagine sulla pagina
 
+    //creo il body
+    let bodyContent = JSON.stringify({
+        image: invertedSrc, // Invia l'immagine invertita
+        platform: "web",
+    });
+    // console.log(bodyContent); //stampo cosa mando all'🐝🐝
+
     // Ora manda l'immagine invertita al server
-    fetch('http://127.0.0.1:8080/toDelete/X', {
+    fetch(`http://${ip}:8080/DigitML_API/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-            img: invertedSrc, // Invia l'immagine invertita
-        }),
+        body: bodyContent,
     })
         .then(response => response.json())
         .then(r => {
-            // console.log(r); //stampo la risposta dell'🐝🐝
+            console.log(r); //stampo la risposta dell'🐝🐝
 
             if (r.prediction) {
                 numero && (numero.innerText = r.prediction);
@@ -72,6 +77,3 @@ function sendImage(invertedSrc) {
 
 // Per lo stile
 suspance && (suspance.style.height = img.height + 'px');
-
-//elaborazione dati
-invertImage(img, sendImage);

@@ -43,6 +43,14 @@ if (isset($_REQUEST['canvas-image'])) {
 
     <script src="scripts/elabora_img.js"></script>
     <script src="scripts/theme.js"></script>
+    <script>
+        <?php
+        $hostname = gethostname();
+        $ip = gethostbyname($hostname);
+        ?>
+        //elaborazione dati
+        invertImage(img, "<?= $ip ?>", sendImage);
+    </script>
 </body>
 
 </html>
