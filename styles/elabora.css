@@ -36,10 +36,22 @@ body {
             background-color: #F0F2EF;
             color: #202021;
 
-            & #resoult {
-                font-family: "Finger Paint", sans-serif;
-                user-select: none;
+            & * {
+                display: block;
+                aspect-ratio: 1 / 1;
+                height: min(60vw, 400px);
+
+                &#resoult {
+                    /* font-family: "Finger Paint", sans-serif; */
+                    font-size: min(40vw, 400px);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    user-select: none;
+                }
             }
+
+
         }
 
         & .suspance {
@@ -48,6 +60,7 @@ body {
             position: relative;
             align-items: center;
             justify-content: center;
+            height: min(60vw, 400px);
 
             & span {
                 font-size: var(--text-medium);

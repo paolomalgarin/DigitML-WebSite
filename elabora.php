@@ -35,7 +35,7 @@ if (isset($_REQUEST['canvas-image'])) {
             <a href="app.html" class="again-btn">RITENTA</a>
         </div>
         <div class="box">
-            <span id="resoult"></span>
+            <span id="resoult">?</span>
         </div>
 
         <a href="app.html" class="again-btn">RITENTA</a>
