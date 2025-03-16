@@ -55,7 +55,7 @@ if ($username) {
 
 <body>
     <header id="navbar">
-        <h1><a href="../">DigitML</a></h1>
+        <h1><a href="../landing.html">DigitML</a></h1>
         <h2>
             <div>Pannello Utente - <?= $username ? $username : 'New' ?></div>
         </h2>

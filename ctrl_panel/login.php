@@ -26,7 +26,7 @@ if (isset($_REQUEST['logOut'])) {
 
 <body>
     <header id="navbar">
-        <h1><a href="../">DigitML</a></h1>
+        <h1><a href="../landing.html">DigitML</a></h1>
         <!-- <a href="app.html" class="nav-btn">APP</a> -->
     </header>
 

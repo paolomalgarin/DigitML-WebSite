@@ -71,7 +71,7 @@ body {
                 &:hover {
                     box-shadow: var(--accent-color) 0px 0px 0px 3px;
                     background-color: var(--t-accent-color);
-                    color: var(--light-neutral-color);
+                    color: var(--secondary-color);
                     backdrop-filter: blur(5px);
                 }
             }

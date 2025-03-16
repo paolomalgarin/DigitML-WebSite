@@ -37,7 +37,8 @@ function fill_canvas(color) {
 }
 
 function clear_canvas() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // ctx.clearRect(0, 0, canvas.width, canvas.height);
+    fill_canvas('#fefefe');
     return true;
 }
 

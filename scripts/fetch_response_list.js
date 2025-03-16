@@ -59,7 +59,7 @@ function orderBy(param, list, callback) {
             else
                 list.sort((a, b) => (new Date(a.date.split('/').reverse().join('-')) - new Date(b.date.split('/').reverse().join('-'))));
             dateOrder = !dateOrder;
-            numOrder = true;
+            numOrder = false;
             break;
         case 'number':
             if (numOrder)
@@ -71,7 +71,7 @@ function orderBy(param, list, callback) {
             break;
         default: break;
     }
-    
+
     window.scrollTo({
         top: 0,
         left: 0,

@@ -59,7 +59,7 @@ body {
                 transition: all .3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 
                 &:hover {
-                    transform: scale(.95);
+                    transform: scale(.98);
                     /* border: solid 10px var(--t-accent-color); */
                 }
             }

@@ -30,7 +30,7 @@ if ($_SESSION['user']['level'] > $required_lvl)
 
 <body>
     <header id="navbar">
-        <h1><a href="../">DigitML</a></h1>
+        <h1><a href="../landing.html">DigitML</a></h1>
         <h2>
             <div>Ben tornato <?= $_SESSION['user']['username'] ?></div>
         </h2>
