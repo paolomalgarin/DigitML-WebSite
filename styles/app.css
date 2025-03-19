@@ -38,6 +38,8 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
     background-image: url(../imgs/landing_bg.svg);
+    background-repeat: repeat;
+    animation: bgmove 30s linear infinite;
 
     & .container {
         display: flex;
@@ -198,34 +200,21 @@ body {
             }
         }
 
-        & .x {
-            width: 100%;
+
+        & #canvas-container {
+            border: solid 8px var(--dark-neutral-color);
+            border-radius: 5px;
+            width: min(500px, 93vw);
+            height: min(500px, 93vw);
+            cursor: url(../imgs/pencil.png) 0 30, pointer;
             box-sizing: border-box;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--light-neutral-color);
-            border-radius: 20px;
-            border: solid 4px var(--dark-neutral-color);
-            width: min(93vw, 600px);
-            height: min(93vw, 600px);
-            margin-top: 40px;
-
-            & #canvas-container {
-                border: solid 10px var(--t-secondary-color);
-                border-radius: 5px;
-                width: min(500px, 93vw);
-                height: min(500px, 93vw);
-                cursor: url(../imgs/pencil.png) 0 30, pointer;
-                box-sizing: border-box;
+            margin-top: var(--text-large);
 
 
-                & #drawing-board {
-                    background-color: #eee;
-                    width: 100%;
-                    height: 100%;
-                }
+            & #drawing-board {
+                background-color: #eee;
+                width: 100%;
+                height: 100%;
             }
         }
     }

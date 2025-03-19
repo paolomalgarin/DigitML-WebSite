@@ -97,14 +97,16 @@
 @media screen and (max-width: 770px) {
     body {
         & #navbar {
+            position: relative;
+
             & .nav-btn {
-                display: inline-block;
+                display: block;
                 background-color: var(--accent-color);
                 box-shadow: none;
                 color: var(--secondary-color);
-                font-size: var(--text-medium);
+                font-size: var(--text-small);
                 cursor: pointer;
-                padding: var(--text-small);
+                padding: var(--text-x-small);
                 border-radius: 5px;
                 font-weight: bold;
                 text-decoration: none;
@@ -113,7 +115,7 @@
                 top: 0;
                 transform: translate(-50%, 0);
                 margin-top: 10px;
-                width: 60%;
+                width: min(200px, 60%);
                 box-sizing: border-box;
                 text-align: center;
 

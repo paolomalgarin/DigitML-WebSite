@@ -55,13 +55,6 @@ function sendImage(invertedSrc, ip) {
 
             if (r.prediction) {
                 numero && (numero.innerText = r.prediction);
-
-                // Per lo stile
-                boxes.forEach(b => {
-                    b.style.height = img.height + 'px';
-                    b.style.width = img.width + 'px';
-                    b.style.fontSize = img.height + 'px';
-                });
             } else {
                 numero && (numero.innerHTML = `Errore ${r.status}:<br>${r.message}`);
             }
@@ -74,6 +67,3 @@ function sendImage(invertedSrc, ip) {
 
 
 // ------------------------------------------------------------------------- CODIFICIO -------------------------------------------------------------------------
-
-// Per lo stile
-suspance && (suspance.style.height = img.height + 'px');

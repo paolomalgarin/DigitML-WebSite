@@ -80,6 +80,8 @@ body {
     overflow-x: hidden;
     background-image: url(../imgs/landing_bg.svg);
     background-attachment: fixed;
+    background-repeat: repeat;
+    animation: bgmove 30s linear infinite;
 
     & main {
         margin: 10px 0;
@@ -97,6 +99,11 @@ body {
             margin: 0;
             padding: var(--text-large) 0;
             width: 100%;
+
+            &:nth-last-child(1) {
+                padding-bottom: 0;
+                /* background-color: red; */
+            }
 
             & .heading {
                 margin: 0;
@@ -141,6 +148,56 @@ body {
 
                     &:hover {
                         background-color: var(--accent-color);
+                    }
+                }
+
+                & .attribution-container {
+                    padding-top: var(--text-medium);
+                    transform-style: preserve-3d;
+                    perspective: 1000px;
+
+                    & .attribution {
+                        box-sizing: border-box;
+                        padding: var(--text-x-small);
+                        width: 100%;
+                        background-color: var(--t-dark-neutral-color);
+                        position: relative;
+                        margin-top: var(--text-small);
+                        border-radius: 10px;
+                        border: solid 2px var(--t-secondary-color);
+                        cursor: pointer;
+                        transform: translateZ(calc(-100px + sqrt(var(--pos) * var(--pos)) * -15px)) rotateX(calc(var(--pos) * 20deg));
+
+                        & .name {
+                            margin: 0;
+                            width: 40%;
+                            font-size: var(--text-medium);
+                        }
+
+                        & .tag {
+                            margin: 0;
+                            width: 40%;
+                            font-size: var(--text-x-small);
+                            text-decoration: none;
+                            background-color: #ee2a7b;
+                            background: linear-gradient(145deg, rgba(249, 206, 48, 1) 0%, rgba(238, 42, 123, 1) 50%, rgba(98, 40, 215, 1) 100%);
+                            background-clip: text;
+                            color: transparent;
+                            font-weight: 600;
+                        }
+
+                        & .description {
+                            position: absolute;
+                            width: 50%;
+                            top: var(--text-small);
+                            right: var(--text-small);
+                            font-size: var(--text-small);
+                        }
+
+                        &:hover {
+                            background-color: var(--light-neutral-color);
+                            border-color: var(--accent-color);
+                        }
                     }
                 }
             }

@@ -16,6 +16,8 @@ body {
     position: relative;
     background-image: url(../../imgs/landing_bg.svg);
     background-attachment: fixed;
+    background-repeat: repeat;
+    animation: bgmove 30s linear infinite;
 
     & #user-data {
         width: min(95%, 1000px);

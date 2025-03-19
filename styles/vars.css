@@ -87,3 +87,20 @@ html[data-theme="dark"] {
     box-sizing: border-box;
     border: solid 1px var(--accent-color);
 }
+
+
+
+
+@keyframes bgmove {
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 300px 300px;
+    }
+
+    100% {
+        background-position: 600px 600px;
+    }
+}

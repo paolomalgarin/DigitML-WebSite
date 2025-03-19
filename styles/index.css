@@ -12,35 +12,6 @@ body {
     font-optical-sizing: auto;
     font-weight: 400;
 
-    /* & .control-panel {
-        display: block;
-        position: absolute;
-        padding: var(--text-x-small);
-        font-size: var(--text-small);
-        left: 5px;
-        top: 5px;
-        text-decoration: none;
-        border-radius: var(--text-x-small);
-        border: solid 2px transparent;
-        font-weight: bold;
-        background-color: transparent;
-        color: transparent;
-        transition: all .3s ease;
-        user-select: none;
-
-        &:hover {
-            background-color: var(--t-light-neutral-color);
-            color: var(--t-primary-color);
-            border-color: var(--t-primary-color);
-        }
-
-        &:focus {
-            background-color: var(--light-neutral-color);
-            color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-    } */
-
     & .banner {
         height: 100%;
         width: 100%;

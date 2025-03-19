@@ -16,6 +16,8 @@ body {
     font-weight: 400;
     position: relative;
     background-image: url(../imgs/landing_bg.svg);
+    background-repeat: repeat;
+    animation: bgmove 30s linear infinite;
 
     & .resoult-container {
         display: flex;
@@ -35,15 +37,17 @@ body {
             border: solid 4px var(--secondary-color);
             background-color: #F0F2EF;
             color: #202021;
+            aspect-ratio: 1 / 1;
+            height: min(40vh, 400px);
 
             & * {
                 display: block;
-                aspect-ratio: 1 / 1;
-                height: min(60vw, 400px);
+                width: 100%;
+                height: 100%;
 
                 &#resoult {
                     /* font-family: "Finger Paint", sans-serif; */
-                    font-size: min(40vw, 400px);
+                    font-size: min(40vh, 400px);
                     display: flex;
                     align-items: center;
                     justify-content: center;
