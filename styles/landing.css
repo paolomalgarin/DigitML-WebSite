@@ -192,6 +192,8 @@ body {
                             top: var(--text-small);
                             right: var(--text-small);
                             font-size: var(--text-small);
+                            display: flex;
+                            justify-content: center;
                         }
 
                         &:hover {
@@ -208,6 +210,38 @@ body {
 
 
 @media screen and (max-width: 770px) {
+    body {
+        & main {
+            & section {
+                & .content {
+                    & .attribution-container {
+                        & .attribution {
+
+                            & .name {
+                                width: 100%;
+                                text-align: center;
+                            }
+    
+                            & .tag {
+                                display: inline-block;
+                                width: fit-content;
+                                position: relative;
+                                left: 50%;
+                                transform: translateX(-50%);
+                            }
+
+                            & .description {
+                                position: relative;
+                                padding: 13px;
+                                box-sizing: border-box;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 
     .ad {
         flex-direction: column;

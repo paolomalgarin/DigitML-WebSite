@@ -190,6 +190,84 @@ body {
                         }
                     }
                 }
+
+                & .guess-types {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 5px;
+                    /* padding: 0 5px; */
+                    align-items: center;
+                    justify-content: center;
+                    background-color: var(--light-neutral-color);
+                    position: relative;
+
+                    & .icon {
+                        all: unset;
+                        border-radius: 5px;
+                        background-color: var(--secondary-color);
+                        background-image: url('../imgs/gear.png');
+                        background-size: calc(100% - 10px);
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        width: calc(var(--text-medium) + 3px);
+                        height: calc(var(--text-medium) + 3px);
+                        box-sizing: border-box;
+                        cursor: pointer;
+                        user-select: none;
+
+                        &:hover {
+                            background-color: var(--t-accent-color);
+                            box-shadow: var(--accent-color) 0px 0px 0px 3px;
+                        }
+
+                        /* faccio sparire le dimensioni se checkato */
+                        &:checked {
+
+                            &+.sizes-buttons {
+                                display: flex;
+                            }
+                        }
+                    }
+
+                    & .sizes-buttons {
+                        display: none;
+                        position: absolute;
+                        width: 100%;
+                        height: fit-content;
+                        left: -10px;
+                        top: calc(100% + 5px);
+                        z-index: 2;
+                        background-color: var(--secondary-color);
+                        padding: 10px;
+                        flex-direction: column;
+                        gap: 10px;
+                        align-items: center;
+                        border-radius: 5px;
+
+                        & input[type='radio'] {
+                            display: none;
+
+                            &:checked + label {
+                                border-color: var(--accent-color);
+                                color: var(--secondary-color);
+                                font-weight: bold;
+                            }
+                        }
+
+                        & label {
+                            background-color: var(--dark-neutral-color);
+                            display: block;
+                            aspect-ratio: 1 / 1;
+                            text-align: center;
+                            box-sizing: border-box;
+                            border: solid 3px var(--light-neutral-color);
+                            font-size: var(--text-small);
+                            border-radius: 5px;
+                            cursor: pointer;
+                            user-select: none;
+                        }
+                    }
+                }
             }
 
             & #submit {

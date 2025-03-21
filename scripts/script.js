@@ -20,7 +20,6 @@ function setup() {
     ctx.lineCap = 'round';
     ctx.lineWidth = lineWidth;
     ctx.strokeStyle = '#010101';
-
     fill_canvas('#fefefe');
 }
 
@@ -28,6 +27,12 @@ function sendForm() {
     const cvImage = document.getElementById('canvas-image');
     let image = canvas.toDataURL("image/png");
     cvImage.value = image;
+    
+    const imgH = document.getElementById('imgH');
+    const imgW = document.getElementById('imgW');
+    imgH.value = canvas.height;
+    imgW.value = canvas.width;
+
     return true;
 }
 

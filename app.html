@@ -29,9 +29,21 @@
                 </div>
 
                 <div onclick="clear_canvas()" class="clear-btn">Clear</div>
+
+                <div class="guess-types">
+                    <input type="checkbox" class="icon" id="guess-types-checkbox">
+                    <div class="sizes-buttons">
+                        <input type="radio" name="guess-type" id="guess-type-number" value="N">
+                        <label for="guess-type-number" onclick="setCookie('guess-type', 'N', 1);">#</label>
+                        <input type="radio" name="guess-type" id="guess-type-letter" value="L"> 
+                        <label for="guess-type-letter" onclick="setCookie('guess-type', 'L', 1);">A</label>
+                    </div>
+                </div>
             </div>
 
             <input type="hidden" name="canvas-image" id="canvas-image">
+            <input type="hidden" name="imgH" id="imgH">
+            <input type="hidden" name="imgW" id="imgW">
             <input type="submit" value="GUESS" id="submit">
         </form>
 
@@ -43,7 +55,17 @@
 
 
     <script src="scripts/script.js"></script>
+    <script src="scripts/biscotti.js"></script>
     <script src="scripts/theme.js"></script>
+
+    <script>
+        let tipo = getCookie('guess-type');
+        if(tipo === 'L') {
+            document.getElementById('guess-type-letter').checked = true;
+        } else {
+            document.getElementById('guess-type-number').checked = true;
+        }
+    </script>
 </body>
 
 </html>

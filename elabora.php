@@ -4,6 +4,9 @@ if (isset($_REQUEST['canvas-image'])) {
     $img = $_REQUEST['canvas-image'];
 }
 
+$imgH = isset($_POST['imgH']) ? $_POST['imgH'] : 500;
+$imgW = isset($_POST['imgW']) ? $_POST['imgW'] : 500;
+$isNumber = (isset($_POST['guess-type']) && $_POST['guess-type'] == 'L') ? false : true;
 ?>
 
 
@@ -49,7 +52,7 @@ if (isset($_REQUEST['canvas-image'])) {
         $ip = gethostbyname($hostname);
         ?>
         //elaborazione dati
-        invertImage(img, "<?= $ip ?>", sendImage);
+        invertImage(img, <?= $imgH ?>, <?= $imgW ?>, "<?= $ip ?>", sendImage, <?= $isNumber ?>);
     </script>
 </body>
 
