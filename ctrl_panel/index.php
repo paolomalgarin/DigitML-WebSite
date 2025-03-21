@@ -5,7 +5,7 @@ include 'auth.php';
 session_start();
 
 //check del login
-auth_validate();
+auth_validate(true);
 
 //controllo se ha l'autorizzazione per la pagina
 $required_lvl = 3;

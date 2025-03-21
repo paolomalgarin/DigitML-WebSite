@@ -18,7 +18,7 @@ function auth_redirect($url, $statusCode = 303)
 }
 
 
-function auth_validate()
+function auth_validate($deleteSessionIfNotAuth = false)
 {
     // ------------------------------------------------------------------- VARIABILI -------------------------------------------------------------------
     $USERS = json_decode(file_get_contents('data/users.json'), true); //prendo gli utenti dal json
@@ -27,7 +27,6 @@ function auth_validate()
     $pwd = isset($_REQUEST['password']) ? $_REQUEST['password'] : null;
 
     $s_user = isset($_SESSION['user']['username']) ? $_SESSION['user']['username'] : null;
-    $s_pwd = isset($_SESSION['user']['password']) ? $_SESSION['user']['password'] : null;
 
 
     // ------------------------------------------------------------------- CODIFICO -------------------------------------------------------------------
@@ -35,7 +34,7 @@ function auth_validate()
         exit('Errore durante il caricamento degli utenti');
     }
 
-    if ($s_user && $s_pwd && $USERS[$s_user]['password'] === $s_pwd) {
+    if ($s_user && $USERS[$s_user]['username'] === $s_user) {
         //se l'utente è loggato nella sessione, faccio andare avanti (if in caso di bisogno di operazioni specifiche future)
 
     } else if ($user && $pwd && $USERS[$user]['password'] === $pwd) {
@@ -43,14 +42,26 @@ function auth_validate()
 
     } else {
         //se non è loggato da nessuna parte, ridireziono al login (index.html) e blocco lo script (exit) per sicurezza
+        if ($deleteSessionIfNotAuth) {
+            //carico i dati della sessione (o la creo se non c'è)
+            session_start();
+            // remove all session variables
+            session_unset();
+            // destroy the session
+            session_destroy();
+        }
+
         if ($user || $pwd)
             auth_redirect('login.php?error=Email+o+password+errati');
         else
             auth_redirect('login.php');
+        exit('Unauthorized!');
     }
 
 
     //c'e l'utente
+    //tolgo la password x non salvarla sulla sessione (Best Practice)
+    unset($USERS[$s_user]['password']);
     //aggiorno l'utente (nel caso in cui cambiassero password e livello di accesso o si fosse appena loggato)
     if ($s_user)
         $_SESSION['user'] = $USERS[$s_user];

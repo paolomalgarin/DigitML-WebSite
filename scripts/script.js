@@ -27,7 +27,7 @@ function sendForm() {
     const cvImage = document.getElementById('canvas-image');
     let image = canvas.toDataURL("image/png");
     cvImage.value = image;
-    
+
     const imgH = document.getElementById('imgH');
     const imgW = document.getElementById('imgW');
     imgH.value = canvas.height;
@@ -68,7 +68,7 @@ function draw(e) {
     e.preventDefault();
     e.stopPropagation();
     if (!isPainting) return;
-    
+
     let clientX, clientY;
     // Se l'evento è un touch, prendi le coordinate del primo tocco
     if (e.touches) {
@@ -96,6 +96,13 @@ canvas.addEventListener('mousedown', (e) => {
     ctx.beginPath();
     ctx.moveTo(e.clientX - canvasOffsetX, e.clientY - canvasOffsetY);
     draw(e); // Disegna il puntino iniziale
+
+
+    //chiude i menu aperti x migliore UE (User Expiriance)
+    document.querySelectorAll('input[type="checkbox"].icon').forEach(c => {
+        if (c.checked)
+            c.checked = false;
+    });
 });
 
 document.addEventListener('mouseup', (e) => {
