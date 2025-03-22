@@ -42,10 +42,10 @@ function sendImage(invertedSrc, ip, isNumber) {
         image: invertedSrc, // Invia l'immagine invertita
         endpoint: (isNumber ? 'number' : 'letter'),
     });
-    console.log(bodyContent); //stampo cosa mando all'🐝🐝 
+    // console.log(bodyContent); //stampo cosa mando all'🐝🐝 
 
     // Ora manda l'immagine invertita al server
-    fetch(`http://${ip}:8080/DigitML_API/`, {
+    fetch(`http://${ip}:8080/DigitML_API/image`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

@@ -3,7 +3,7 @@ let dateOrder = true;
 let numOrder = false;
 
 function getResponseList(ip) {
-    fetch(`http://${ip}:8080/DigitML_API/history`, {
+    fetch(`http://${ip}:8080/DigitML_API/image`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -51,6 +51,17 @@ function printList(list) {
 }
 
 
+// Funzione per ottenere il valore numerico di una variabile (che puo essere sia numero che stringa di length 1)
+const getValue = (x) => {
+    if (typeof x.prediction === 'string') {
+        // Se è una stringa, restituisci il codice del primo carattere
+        return x.prediction.charCodeAt(0);
+    } else {
+        // Altrimenti usa direttamente il numero
+        return x.prediction;
+    }
+};
+
 function orderBy(param, list, callback) {
     switch (param) {
         case 'date':
@@ -63,9 +74,9 @@ function orderBy(param, list, callback) {
             break;
         case 'number':
             if (numOrder)
-                list.sort((a, b) => (a.prediction - b.prediction));
+                list.sort((a, b) => { return getValue(a) - getValue(b); });
             else
-                list.sort((a, b) => (b.prediction - a.prediction));
+                list.sort((a, b) => { return getValue(b) - getValue(a); });
             numOrder = !numOrder;
             dateOrder = false;
             break;
